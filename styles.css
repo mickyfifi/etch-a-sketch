@@ -1,0 +1,12 @@
+#container {
+    border: 2px solid red;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.box {
+    border: 1px solid black;
+    flex: 0 0 auto;
+    min-width: 25px;
+    min-height: 20px;
+}
