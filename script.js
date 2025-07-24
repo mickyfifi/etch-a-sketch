@@ -1,8 +1,11 @@
-const BOX_WIDTH = 27;
+const CONTAINER_WIDTH_PX = 800;
+const CONTAINER_HEIGHT_PX = 600;
 let gridCount = 16;
 
 const containerElement = document.querySelector('#container');
 const setupButton = document.querySelector('#setup');
+containerElement.style.width = `${CONTAINER_WIDTH_PX}px`;
+containerElement.style.height = `${CONTAINER_HEIGHT_PX}px`;
 
 setupButton.addEventListener('click', () => {
     input = prompt('Number of grid?');
@@ -15,13 +18,16 @@ setupButton.addEventListener('click', () => {
 });
 
 function addGrid(containerElement, gridCount) {
-    containerElement.style.width = `${BOX_WIDTH * gridCount}px`;
+    const boxWidthPx = CONTAINER_WIDTH_PX / gridCount;
+    const boxHeightPx = CONTAINER_HEIGHT_PX / gridCount;
 
     for (let row = 0; row < gridCount; row++) {
         for (let col = 0; col < gridCount; col++) {
             const boxElement = document.createElement('div');
             boxElement.id = `box-r${row + 1}-c${col + 1}`;
             boxElement.classList.add('box');
+            boxElement.style.width = `${boxWidthPx}px`;
+            boxElement.style.height = `${boxHeightPx}px`;
 
             boxElement.addEventListener('mouseover', () => {
                 if (boxElement.style.backgroundColor) {
